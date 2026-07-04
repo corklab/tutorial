@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コラム：GitHub Pagesでつくる無料ホスティングのLP公開</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">コラム</span>
+      <h1>GitHub Pagesでつくる無料ホスティングのLP公開</h1>
+      <p class="goal">チュートリアルで使っている「GitHub Pages」について、もう少し詳しく知っておきましょう</p>
+    </div>
+
+    <h2>GitHub Pagesとは何か</h2>
+    <p>GitHub Pagesは、GitHubが提供している<strong>無料のWebサイト公開サービス</strong>です。</p>
+    <p>通常、Webサイトを公開するにはサーバーを借りたり、ホスティングサービスに登録したりする必要があります。GitHub Pagesなら、GitHubのリポジトリにHTMLファイルを置くだけで、そのままWebサイトとして公開されます。</p>
+
+    <div class="note">
+      <p class="note-title">ひとことで言うと</p>
+      <p>「GitHubに置いたHTMLファイルを、そのままWebサイトとして世界中に公開してくれる無料サービス」です。</p>
+    </div>
+
+    <p>公開されたサイトには、以下の形式のURLが自動で割り当てられます：</p>
+    <div class="flow-diagram">https://アカウント名.github.io/リポジトリ名/</div>
+    <p>このチュートリアルの場合は：</p>
+    <div class="flow-diagram">https://corklab.github.io/<strong>tutorial</strong>/</div>
+
+    <h2>できること</h2>
+
+    <h3>HTML・CSS・JavaScriptのサイトを公開できる</h3>
+    <p>LPやポートフォリオ、イベント告知ページなど、「見た目のあるWebページ」をそのまま公開できます。Claudeが作ったHTMLファイルをそのまま公開できるのはこの仕組みのおかげです。</p>
+
+    <h3>無料で使える</h3>
+    <p>GitHubの無料アカウントで利用できます。サーバー代やドメイン維持費は一切かかりません（独自ドメインを使う場合を除く）。</p>
+
+    <h3>HTTPSが標準対応</h3>
+    <p>公開されるサイトは最初からHTTPS（暗号化通信）に対応しています。「このサイトは安全ではありません」といった警告が出ることはありません。</p>
+
+    <h3>Gitと連動している</h3>
+    <p>リポジトリのmainブランチにマージするだけで、サイトが自動的に更新されます。チュートリアルで学んだ「Claudeに修正してもらう → PR → マージ → 反映」のサイクルがそのまま使えるのはこの仕組みです。</p>
+
+    <h2>留意事項（気をつけること）</h2>
+
+    <h3>静的サイトのみ対応</h3>
+    <p>GitHub Pagesで公開できるのは<strong>静的サイト</strong>（HTML・CSS・JavaScriptだけで動くサイト）です。</p>
+    <div class="note">
+      <p class="note-title">できないことの例</p>
+      <p>お問い合わせフォームの送信内容をデータベースに保存する、ユーザーのログイン機能を作る、商品の決済処理を行う、といったサーバー側の処理が必要な機能は、GitHub Pages単体では実現できません。</p>
+    </div>
+
+    <h3>公開リポジトリは中身が見える</h3>
+    <p>GitHub Pagesで公開するリポジトリが「Public（公開）」設定の場合、HTMLのソースコードや画像ファイルなど、<strong>リポジトリの中身は誰でも見ることができます</strong>。パスワードやAPIキーなど、秘密にしたい情報はリポジトリに入れないようにしましょう。</p>
+
+    <h3>サイトの容量と帯域に制限がある</h3>
+    <p>GitHubが推奨する目安は以下のとおりです：</p>
+    <table class="summary-table">
+      <thead>
+        <tr><th>項目</th><th>推奨上限</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>サイト全体のサイズ</td><td>1 GB まで</td></tr>
+        <tr><td>月間の転送量（帯域）</td><td>100 GB まで</td></tr>
+      </tbody>
+    </table>
+    <p>LPや数ページのサイトであれば、まず超えることはありません。大量の動画や高解像度画像を置く場合は注意してください。</p>
+
+    <h3>商用利用について</h3>
+    <p>GitHub Pagesは商用サイトの公開を禁止していませんが、オンラインストアのような本格的な商用サービスの運用には向いていません。LPや会社紹介ページ程度であれば問題なく利用できます。</p>
+
+    <h2>独自ドメインの設定</h2>
+    <p>GitHub Pagesでは、デフォルトの <code>*.github.io</code> の代わりに、自分で取得したドメイン（例：<code>www.example.com</code>）を使うこともできます。</p>
+
+    <h3>設定の流れ</h3>
+    <ol class="steps">
+      <li><strong>ドメインを取得する</strong> — ドメイン登録サービス（お名前.com、Google Domains、Cloudflareなど）で好きなドメインを購入する</li>
+      <li><strong>DNS設定をする</strong> — 取得したドメインの管理画面で、GitHubのサーバーを向くようにDNSレコードを設定する</li>
+      <li><strong>GitHubで設定する</strong> — リポジトリの Settings → Pages → Custom domain に取得したドメインを入力して保存する</li>
+      <li><strong>HTTPS化</strong> — 「Enforce HTTPS」にチェックを入れる（DNSが浸透した後に有効化できます）</li>
+    </ol>
+
+    <div class="note">
+      <p class="note-title">DNS設定の具体例</p>
+      <p>
+        <strong>Aレコード</strong>（ルートドメインの場合）：以下のIPアドレスを設定<br>
+        <code>185.199.108.153</code><br>
+        <code>185.199.109.153</code><br>
+        <code>185.199.110.153</code><br>
+        <code>185.199.111.153</code><br><br>
+        <strong>CNAMEレコード</strong>（サブドメインの場合）：<br>
+        <code>www</code> → <code>corklab.github.io</code>
+      </p>
+    </div>
+
+    <div class="note">
+      <p class="note-title">ポイント</p>
+      <p>独自ドメインの設定は管理者が行います。ドメインの取得には年間数百円〜数千円の費用がかかります。まずはデフォルトの <code>*.github.io</code> のURLで始めて、必要になったら独自ドメインを検討するのがおすすめです。</p>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">← 目次に戻る</a>
+      <span></span>
+    </nav>
+  </div>
+</body>
+</html>
