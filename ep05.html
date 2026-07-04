@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第5話：世界へ公開・GitHub Pagesのスイッチオン</title>
+  <title>第5話：世界へ公開・管理者のマージで本番反映</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -12,73 +12,61 @@
   <div class="container">
     <div class="ep-header">
       <span class="ep-number">第5話</span>
-      <h1>世界へ公開・GitHub Pagesのスイッチオン</h1>
-      <p class="goal">目標：プルリクエストをマージして、GitHub Pagesを有効化してLPを世界に公開する</p>
+      <h1>世界へ公開・管理者のマージで本番反映</h1>
+      <p class="goal">目標：管理者がPRをマージしてくれたら、LPが公開されたことを確認する</p>
     </div>
 
     <h2>この話の流れ</h2>
-    <div class="flow-diagram">あなた（ブラウザ）
-    |
-    |-- プルリクエストをマージ
-    |-- Settings → Pages を開く
-    |-- 公開元を設定
-    |-- URLが発行される
-    |-- LPが世界に公開！</div>
+    <div class="flow-diagram">あなた              管理者               GitHub
+  |                   |                    |
+  |-- PR作成済み --->|                    |
+  |                   |-- PRを確認         |
+  |                   |-- マージ実行 ---->|
+  |                   |-- Pages設定 ----->|-- 公開処理
+  |                   |                    |-- URL発行
+  |                   |-- 「公開したよ」-->|
+  |-- URLにアクセス                       |
+  |-- LP表示確認！                        |</div>
 
     <h2>実践ステップ</h2>
 
-    <h3>ステップ1：プルリクエストをマージする</h3>
+    <h3>ステップ1：管理者のマージを待つ</h3>
+    <p>前の話でプルリクエストを作成しました。ここからは管理者の作業です：</p>
     <ol class="steps">
-      <li>前の話で作ったプルリクエストのページを開く</li>
-      <li>緑色の「<strong>Merge pull request</strong>」ボタンを押す</li>
-      <li>「<strong>Confirm merge</strong>」を押す</li>
+      <li>管理者があなたのPRの内容を確認する</li>
+      <li>問題なければ管理者がマージ（本番に反映）する</li>
+      <li>管理者がGitHub Pagesの設定を行う</li>
     </ol>
 
     <div class="note">
-      <p class="note-title">マージって何？</p>
-      <p>別室（ブランチ）で作ったものを、本番のテーブル（main）に移すことです。これでmainにLPのHTMLファイルが入ります。</p>
+      <p class="note-title">待っている間は？</p>
+      <p>管理者がマージするまで少し待ちましょう。マージが完了すると、GitHubから通知メールが届きます。管理者から公開URLを教えてもらえます。</p>
     </div>
 
-    <h3>ステップ2：GitHub Pagesの設定を開く</h3>
-    <ol class="steps">
-      <li>リポジトリのトップページに戻る</li>
-      <li>上部メニューの「<strong>Settings</strong>」タブをクリック</li>
-      <li>左サイドバーの「<strong>Pages</strong>」をクリック</li>
-    </ol>
-
-    <h3>ステップ3：公開元を設定する</h3>
-    <ol class="steps">
-      <li>「Source」のドロップダウンで「<strong>Deploy from a branch</strong>」を選択</li>
-      <li>「Branch」で「<strong>main</strong>」を選択</li>
-      <li>フォルダは「<strong>/ (root)</strong>」のまま</li>
-      <li>「<strong>Save</strong>」ボタンを押す</li>
-    </ol>
-
-    <h3>ステップ4：公開されたURLを確認する</h3>
-    <ol class="steps">
-      <li>1〜2分待つ（裏でGitHubが公開処理をしています）</li>
-      <li>Pagesの設定画面をリロードする</li>
-      <li>上部に表示されるURLをクリック</li>
-    </ol>
-    <div class="flow-diagram">https://あなたのユーザー名.github.io/my-landing-page/</div>
+    <h3>ステップ2：公開されたURLを確認する</h3>
+    <p>管理者からURLを教えてもらったら、ブラウザでアクセスします：</p>
+    <div class="flow-diagram">https://corklab.github.io/リポジトリ名/</div>
 
     <div class="congrats">
       <h3>おめでとうございます！</h3>
-      <p>Claudeが作ったLPが、世界中の誰でもアクセスできるURLで公開されました！</p>
+      <p>あなたがClaudeと一緒に作ったLPが、世界中の誰でもアクセスできるURLで公開されました！</p>
     </div>
+
+    <h3>ステップ3：PRのステータスを確認する（任意）</h3>
+    <p>GitHubでプルリクエストのページを開くと、ステータスが「<strong>Merged</strong>」（紫色）に変わっているのが確認できます。</p>
 
     <h2>トラブルシューティング</h2>
 
-    <h3>URLが表示されない場合</h3>
+    <h3>URLにアクセスしても表示されない場合</h3>
     <ul>
-      <li>2〜3分待ってからページをリロードしてみてください</li>
-      <li>ブランチが「main」になっているか確認してください</li>
+      <li>マージ後、反映まで1〜2分かかることがあります。少し待ってリロードしてみてください</li>
+      <li>管理者にPages設定が完了しているか確認してみてください</li>
     </ul>
 
     <h3>404エラーが出る場合</h3>
     <ul>
       <li>ファイル名が <code>index.html</code> になっているか確認してください</li>
-      <li>マージが完了しているか確認してください</li>
+      <li>心当たりがなければ管理者に相談しましょう</li>
     </ul>
 
     <h2>この話のまとめ</h2>
@@ -87,12 +75,12 @@
         <tr><th>やったこと</th><th>誰が</th></tr>
       </thead>
       <tbody>
-        <tr><td>マージ</td><td>あなた（ブラウザ）</td></tr>
-        <tr><td>Pages設定</td><td>あなた（ブラウザ）</td></tr>
-        <tr><td>公開処理</td><td>GitHub（自動）</td></tr>
+        <tr><td>PRの確認・マージ</td><td>管理者</td></tr>
+        <tr><td>Pages公開設定</td><td>管理者</td></tr>
+        <tr><td>公開URLの確認</td><td>あなた（ブラウザ）</td></tr>
       </tbody>
     </table>
-    <p>すべてブラウザ上のクリック操作だけで、LPが世界に公開されました。</p>
+    <p>あなたはURLを開いて確認するだけ。技術的な公開設定は管理者がすべてやってくれます。</p>
 
     <nav class="nav-links">
       <a href="ep04.html">← 第4話に戻る</a>

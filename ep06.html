@@ -17,20 +17,20 @@
     </div>
 
     <h2>この話の流れ</h2>
-    <div class="flow-diagram">あなた（Claude画面/ブラウザ）   Claude（Mac）
-    |                              |
-    |-- 「見出し変えて、        -->|
-    |    コミットとプッシュまで     |
-    |    やっておいて」            |
-    |                              |-- ブランチ作成
-    |                              |-- ファイル修正
-    |                              |-- コミット
-    |                              |-- プッシュ
-    |                              |-- 完了報告
-    |                              |
-    |-- ブラウザでPR作成 -------->|
-    |-- マージ ------------------>|
-    |-- LP更新完了！              |</div>
+    <div class="flow-diagram">あなた（Claude画面/ブラウザ）   Claude（Mac）      管理者
+    |                              |                |
+    |-- 「見出し変えて、        -->|                |
+    |    コミットとプッシュまで     |                |
+    |    やっておいて」            |                |
+    |                              |-- ブランチ作成  |
+    |                              |-- ファイル修正  |
+    |                              |-- コミット      |
+    |                              |-- プッシュ      |
+    |                              |-- 完了報告      |
+    |                              |                |
+    |-- ブラウザでPR作成 -------->|                |
+    |                              |           マージ|
+    |-- LP更新確認！              |                |</div>
 
     <h2>実践ステップ</h2>
 
@@ -49,32 +49,33 @@
       <li>GitHubにプッシュ</li>
     </ol>
 
-    <h3>ステップ2：ブラウザでプルリクエストを作成・マージする</h3>
+    <h3>ステップ2：ブラウザでプルリクエストを作成する</h3>
     <ol class="steps">
-      <li>GitHubでリポジトリを開く</li>
+      <li>GitHubで <code>https://github.com/corklab/リポジトリ名</code> を開く</li>
       <li>「<strong>Compare &amp; pull request</strong>」をクリック</li>
       <li>「<strong>Create pull request</strong>」をクリック</li>
-      <li>「<strong>Merge pull request</strong>」→「<strong>Confirm merge</strong>」をクリック</li>
     </ol>
 
-    <h3>ステップ3：更新を確認する</h3>
-    <p>公開URLにアクセスして、見出しが変わっていることを確認します。</p>
-    <div class="flow-diagram">https://あなたのユーザー名.github.io/my-landing-page/</div>
+    <h3>ステップ3：管理者のマージを待って更新を確認する</h3>
+    <p>管理者がマージしてくれたら、公開URLにアクセスして変更が反映されていることを確認します。</p>
+    <div class="flow-diagram">https://corklab.github.io/リポジトリ名/</div>
 
     <div class="note">
       <p class="note-title">注意</p>
-      <p>反映まで1〜2分かかることがあります。変わらない場合はブラウザのキャッシュをクリアするか、少し待ってからリロードしてください。</p>
+      <p>マージ後、反映まで1〜2分かかることがあります。変わらない場合はブラウザのキャッシュをクリアするか、少し待ってからリロードしてください。</p>
     </div>
 
     <h2>更新サイクルまとめ</h2>
     <div class="cycle-diagram">
       <div class="step"><strong>① Claudeに修正を指示</strong></div>
       <div class="arrow">↓</div>
-      <div class="step"><strong>② Claude:</strong> 修正 → コミット → プッシュ</div>
+      <div class="step"><strong>②</strong> Claude: 修正 → コミット → プッシュ</div>
       <div class="arrow">↓</div>
-      <div class="step"><strong>③ あなた:</strong> PR作成 → マージ（ブラウザ）</div>
+      <div class="step"><strong>③</strong> あなた: PR作成（ブラウザ）</div>
       <div class="arrow">↓</div>
-      <div class="step"><strong>④ LP更新完了！</strong></div>
+      <div class="step"><strong>④</strong> 管理者: マージ</div>
+      <div class="arrow">↓</div>
+      <div class="step"><strong>⑤ LP更新完了！</strong></div>
       <div class="arrow">↓</div>
       <div class="step">（①に戻る）</div>
     </div>
@@ -101,19 +102,20 @@
         <tr><th>話数</th><th>学んだこと</th></tr>
       </thead>
       <tbody>
-        <tr><td>第1話</td><td>リポジトリの作成とクローン</td></tr>
+        <tr><td>第1話</td><td>招待の承認とクローン</td></tr>
         <tr><td>第2話</td><td>ブランチ作成とLP作成</td></tr>
         <tr><td>第3話</td><td>コミット（セーブポイント）</td></tr>
         <tr><td>第4話</td><td>プッシュとプルリクエスト</td></tr>
-        <tr><td>第5話</td><td>GitHub Pagesでの公開</td></tr>
+        <tr><td>第5話</td><td>マージと公開確認</td></tr>
         <tr><td>第6話</td><td>更新サイクル</td></tr>
       </tbody>
     </table>
 
     <div class="note">
       <p class="note-title">役割分担</p>
-      <p><strong>あなたの役割</strong>: 何を作りたいか伝える＋ブラウザでポチポチ<br>
-      <strong>Claudeの役割</strong>: コードを書く＋技術的な操作を全部代行<br><br>
+      <p><strong>あなたの役割</strong>: 何を作りたいか伝える＋ブラウザでPRを出す<br>
+      <strong>Claudeの役割</strong>: コードを書く＋技術的な操作を全部代行<br>
+      <strong>管理者の役割</strong>: マージ＋公開設定<br><br>
       この分担で、あなたはいつでもLPを作って世界に公開できます。</p>
     </div>
 
