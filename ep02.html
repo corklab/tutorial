@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第2話：Claudeがコードを書く・安全な作業部屋でのLP作成</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">第2話</span>
+      <h1>Claudeがコードを書く・安全な作業部屋でのLP作成</h1>
+      <p class="goal">目標：Claudeに新しいブランチ（作業部屋）を作らせ、LPのHTMLを書かせる</p>
+    </div>
+
+    <h2>この話の流れ</h2>
+    <div class="flow-diagram">あなた（Claude画面）        Claude（Mac）
+    |                            |
+    |-- 「ブランチ作って」------>|
+    |-- 「LP書いて」----------->|
+    |                            |-- ブランチ作成
+    |                            |-- HTMLファイル生成
+    |                            |-- 完成報告</div>
+
+    <h2>実践ステップ</h2>
+
+    <h3>ステップ1：Claudeにブランチ作成とLP作成を指示する</h3>
+    <p>Claudeに以下のように話しかけます：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「LP作成用の新しいブランチを作って、素敵なLPのHTMLファイルを作成して」</p>
+    </div>
+
+    <p>もっと具体的にしたい場合はこんな風に：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude（具体的バージョン）</p>
+      <p>「<code>feature/lp</code> というブランチを作って、カフェの新規オープンを告知するLPを <code>index.html</code> として作成して。モダンでおしゃれなデザインにしてほしい」</p>
+    </div>
+
+    <h3>ステップ2：Claudeの作業を見守る</h3>
+    <p>Claudeが以下を自動で実行します：</p>
+    <ol class="steps">
+      <li><strong>ブランチの作成</strong> — mainから新しい作業用ブランチを切る</li>
+      <li><strong>HTMLファイルの作成</strong> — デザイン済みのLPコードを生成して保存</li>
+    </ol>
+
+    <div class="note">
+      <p class="note-title">ブランチって何？</p>
+      <p>本番のデータ（main）を汚さずに作業するための「別室」です。料理で例えると、完成品を置くテーブル（main）とは別の調理台で作業するイメージです。失敗してもテーブルの上は綺麗なままです。</p>
+    </div>
+
+    <h3>ステップ3：出来上がりを確認する</h3>
+    <p>Claudeが完了を報告したら、こう聞いてみましょう：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「作ったHTMLファイルの中身を見せて」</p>
+    </div>
+    <p>もしくは：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「作ったLPをブラウザでプレビューして」</p>
+    </div>
+
+    <h2>補足：こんなLPが作れます</h2>
+    <p>Claudeに頼めるLPの例：</p>
+    <ul class="steps">
+      <li>新商品の発売告知LP</li>
+      <li>イベントの参加募集ページ</li>
+      <li>ポートフォリオサイト</li>
+      <li>お店の紹介ページ</li>
+    </ul>
+    <p>具体的なイメージを伝えるほど、あなた好みのLPに仕上がります。</p>
+
+    <h2>この話のまとめ</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>やったこと</th><th>誰が</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>指示を出す</td><td>あなた（Claude画面）</td></tr>
+        <tr><td>ブランチ作成</td><td>Claude（Mac）</td></tr>
+        <tr><td>HTMLコード作成</td><td>Claude（Mac）</td></tr>
+        <tr><td>ファイル保存</td><td>Claude（Mac）</td></tr>
+      </tbody>
+    </table>
+    <p>あなたの仕事は「何を作りたいか伝える」だけ。コードを1文字も書く必要はありません。</p>
+
+    <nav class="nav-links">
+      <a href="ep01.html">← 第1話に戻る</a>
+      <a href="ep03.html">次の話へ → 第3話</a>
+    </nav>
+  </div>
+</body>
+</html>

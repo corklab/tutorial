@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第5話：世界へ公開・GitHub Pagesのスイッチオン</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">第5話</span>
+      <h1>世界へ公開・GitHub Pagesのスイッチオン</h1>
+      <p class="goal">目標：プルリクエストをマージして、GitHub Pagesを有効化してLPを世界に公開する</p>
+    </div>
+
+    <h2>この話の流れ</h2>
+    <div class="flow-diagram">あなた（ブラウザ）
+    |
+    |-- プルリクエストをマージ
+    |-- Settings → Pages を開く
+    |-- 公開元を設定
+    |-- URLが発行される
+    |-- LPが世界に公開！</div>
+
+    <h2>実践ステップ</h2>
+
+    <h3>ステップ1：プルリクエストをマージする</h3>
+    <ol class="steps">
+      <li>前の話で作ったプルリクエストのページを開く</li>
+      <li>緑色の「<strong>Merge pull request</strong>」ボタンを押す</li>
+      <li>「<strong>Confirm merge</strong>」を押す</li>
+    </ol>
+
+    <div class="note">
+      <p class="note-title">マージって何？</p>
+      <p>別室（ブランチ）で作ったものを、本番のテーブル（main）に移すことです。これでmainにLPのHTMLファイルが入ります。</p>
+    </div>
+
+    <h3>ステップ2：GitHub Pagesの設定を開く</h3>
+    <ol class="steps">
+      <li>リポジトリのトップページに戻る</li>
+      <li>上部メニューの「<strong>Settings</strong>」タブをクリック</li>
+      <li>左サイドバーの「<strong>Pages</strong>」をクリック</li>
+    </ol>
+
+    <h3>ステップ3：公開元を設定する</h3>
+    <ol class="steps">
+      <li>「Source」のドロップダウンで「<strong>Deploy from a branch</strong>」を選択</li>
+      <li>「Branch」で「<strong>main</strong>」を選択</li>
+      <li>フォルダは「<strong>/ (root)</strong>」のまま</li>
+      <li>「<strong>Save</strong>」ボタンを押す</li>
+    </ol>
+
+    <h3>ステップ4：公開されたURLを確認する</h3>
+    <ol class="steps">
+      <li>1〜2分待つ（裏でGitHubが公開処理をしています）</li>
+      <li>Pagesの設定画面をリロードする</li>
+      <li>上部に表示されるURLをクリック</li>
+    </ol>
+    <div class="flow-diagram">https://あなたのユーザー名.github.io/my-landing-page/</div>
+
+    <div class="congrats">
+      <h3>おめでとうございます！</h3>
+      <p>Claudeが作ったLPが、世界中の誰でもアクセスできるURLで公開されました！</p>
+    </div>
+
+    <h2>トラブルシューティング</h2>
+
+    <h3>URLが表示されない場合</h3>
+    <ul>
+      <li>2〜3分待ってからページをリロードしてみてください</li>
+      <li>ブランチが「main」になっているか確認してください</li>
+    </ul>
+
+    <h3>404エラーが出る場合</h3>
+    <ul>
+      <li>ファイル名が <code>index.html</code> になっているか確認してください</li>
+      <li>マージが完了しているか確認してください</li>
+    </ul>
+
+    <h2>この話のまとめ</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>やったこと</th><th>誰が</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>マージ</td><td>あなた（ブラウザ）</td></tr>
+        <tr><td>Pages設定</td><td>あなた（ブラウザ）</td></tr>
+        <tr><td>公開処理</td><td>GitHub（自動）</td></tr>
+      </tbody>
+    </table>
+    <p>すべてブラウザ上のクリック操作だけで、LPが世界に公開されました。</p>
+
+    <nav class="nav-links">
+      <a href="ep04.html">← 第4話に戻る</a>
+      <a href="ep06.html">次の話へ → 第6話</a>
+    </nav>
+  </div>
+</body>
+</html>

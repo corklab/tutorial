@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第3話：コミットも自動・ClaudeがMacでセーブポイントを記録</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">第3話</span>
+      <h1>コミットも自動・ClaudeがMacでセーブポイントを記録</h1>
+      <p class="goal">目標：Claudeにファイルの追加とコミット（セーブポイントの記録）を実行してもらう</p>
+    </div>
+
+    <h2>この話の流れ</h2>
+    <div class="flow-diagram">あなた（Claude画面）        Claude（Mac）
+    |                           |
+    |-- 「コミットして」------->|
+    |                           |-- ステージング（ファイル選択）
+    |                           |-- コミットメッセージ作成
+    |                           |-- コミット実行
+    |                           |-- 完了報告</div>
+
+    <h2>実践ステップ</h2>
+
+    <h3>ステップ1：Claudeにコミットを指示する</h3>
+    <p>Claudeに以下のように話しかけます：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「作成したHTMLファイルをGitにコミットして」</p>
+    </div>
+    <p>これだけでOKです。</p>
+
+    <h3>ステップ2：Claudeがやってくれること</h3>
+    <p>Claudeは以下を自動でやってくれます：</p>
+    <ol class="steps">
+      <li><strong>ステージング</strong> — 保存したいファイルを選ぶ（<code>git add</code>）</li>
+      <li><strong>コミットメッセージの作成</strong> — 何をしたか説明する文を考える</li>
+      <li><strong>コミット実行</strong> — セーブポイントを記録する（<code>git commit</code>）</li>
+    </ol>
+
+    <div class="note">
+      <p class="note-title">コミットって何？</p>
+      <p>ゲームの「セーブ」と同じです。「ここまではうまくいった」という状態を記録しておくことで、もし後で失敗しても、この時点に戻ってこられます。</p>
+    </div>
+
+    <h3>ステップ3：結果を確認する</h3>
+    <p>Claudeが「コミットしました」と報告してくれます。気になれば確認もできます：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「今のコミット履歴を見せて」</p>
+    </div>
+
+    <h2>補足：コミットメッセージとは</h2>
+    <p>コミットメッセージは「このセーブで何をしたか」のメモ書きです。</p>
+    <div class="flow-diagram">例：「カフェLPのHTMLファイルを作成」</div>
+    <p>Claudeが文脈を読んで適切なメッセージを自動で考えてくれるので、あなたが悩む必要はありません。</p>
+
+    <h2>この話のまとめ</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>やったこと</th><th>誰が</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>「コミットして」と伝える</td><td>あなた（Claude画面）</td></tr>
+        <tr><td>ファイルの選択</td><td>Claude（Mac）</td></tr>
+        <tr><td>メッセージ作成</td><td>Claude（Mac）</td></tr>
+        <tr><td>コミット実行</td><td>Claude（Mac）</td></tr>
+      </tbody>
+    </table>
+    <p>たった一言で、セーブポイントの記録が完了しました。</p>
+
+    <nav class="nav-links">
+      <a href="ep02.html">← 第2話に戻る</a>
+      <a href="ep04.html">次の話へ → 第4話</a>
+    </nav>
+  </div>
+</body>
+</html>

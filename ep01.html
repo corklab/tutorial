@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1話：GitHubでリポジトリ作成とClaudeへのクローン指示</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">第1話</span>
+      <h1>GitHubでリポジトリ作成とClaudeへのクローン指示</h1>
+      <p class="goal">目標：GitHubで箱（リポジトリ）を作り、MacのClaudeに引き継ぐ</p>
+    </div>
+
+    <h2>この話の流れ</h2>
+    <div class="flow-diagram">あなた（ブラウザ）        Claude（Mac）
+    |                        |
+    |-- リポジトリを作る ---->|
+    |-- URLをコピー -------->|
+    |-- 「クローンして」---->|
+    |                        |-- クローン実行
+    |                        |-- 作業フォルダ完成</div>
+
+    <h2>実践ステップ</h2>
+
+    <h3>ステップ1：GitHubで新しいリポジトリを作る</h3>
+    <ol class="steps">
+      <li>ブラウザで <a href="https://github.com/new" target="_blank">github.com/new</a> を開く</li>
+      <li><strong>Repository name</strong> に <code>my-landing-page</code> と入力（好きな名前でOK）</li>
+      <li><strong>Public</strong> を選択（GitHub Pagesで公開するため）</li>
+      <li>READMEやファイルは<strong>何も追加しない</strong>（空のまま）</li>
+      <li>「Create repository」ボタンを押す</li>
+    </ol>
+
+    <div class="note">
+      <p class="note-title">なぜ空にするの？</p>
+      <p>Claudeが最初からすべてのファイルを作ってくれるので、最初は何もない状態がベストです。</p>
+    </div>
+
+    <h3>ステップ2：リポジトリのURLをコピーする</h3>
+    <p>作成されたリポジトリのページで、ブラウザのアドレスバーからURLをコピーします。</p>
+    <div class="flow-diagram">https://github.com/あなたのユーザー名/my-landing-page</div>
+
+    <h3>ステップ3：Claudeに指示を出す</h3>
+    <p>MacのClaudeアプリを開いて、以下のように話しかけます：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「このGitHubリポジトリをMacにクローンして、LP作成の準備をして」<br><br>https://github.com/あなたのユーザー名/my-landing-page</p>
+    </div>
+
+    <h3>ステップ4：Claudeの動きを見守る</h3>
+    <p>Claudeが以下を自動で実行します：</p>
+    <ol class="steps">
+      <li>Mac上の適切な場所にフォルダを作成</li>
+      <li><code>git clone</code> コマンドでリポジトリをダウンロード</li>
+      <li>作業フォルダの準備完了を報告</li>
+    </ol>
+
+    <div class="note">
+      <p class="note-title">ポイント</p>
+      <p>Claudeがターミナルコマンドを実行するとき、許可を求めてくることがあります。内容を確認して「Allow」を押してください。</p>
+    </div>
+
+    <h2>この話のまとめ</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>やったこと</th><th>誰が</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>リポジトリ作成</td><td>あなた（ブラウザ）</td></tr>
+        <tr><td>URLコピー</td><td>あなた（ブラウザ）</td></tr>
+        <tr><td>クローン実行</td><td>Claude（Mac）</td></tr>
+      </tbody>
+    </table>
+    <p>あなたがやったのは「ブラウザでポチポチ」と「Claudeに一言伝える」だけ。技術的な部分はすべてClaudeが代行してくれました。</p>
+
+    <nav class="nav-links">
+      <a href="index.html">← 目次に戻る</a>
+      <a href="ep02.html">次の話へ → 第2話</a>
+    </nav>
+  </div>
+</body>
+</html>

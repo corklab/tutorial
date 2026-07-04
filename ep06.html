@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第6話：修正も一瞬・Claudeと回す更新サイクル</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">第6話</span>
+      <h1>修正も一瞬・Claudeと回す更新サイクル</h1>
+      <p class="goal">目標：LPの文言を修正して再公開する一連の流れをマスターする</p>
+    </div>
+
+    <h2>この話の流れ</h2>
+    <div class="flow-diagram">あなた（Claude画面/ブラウザ）   Claude（Mac）
+    |                              |
+    |-- 「見出し変えて、        -->|
+    |    コミットとプッシュまで     |
+    |    やっておいて」            |
+    |                              |-- ブランチ作成
+    |                              |-- ファイル修正
+    |                              |-- コミット
+    |                              |-- プッシュ
+    |                              |-- 完了報告
+    |                              |
+    |-- ブラウザでPR作成 -------->|
+    |-- マージ ------------------>|
+    |-- LP更新完了！              |</div>
+
+    <h2>実践ステップ</h2>
+
+    <h3>ステップ1：Claudeに修正からプッシュまで一気に任せる</h3>
+    <p>Claudeに以下のように話しかけます：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「LPの見出しを『最高のコーヒーをあなたに』に変えて、コミットとプッシュまでやっておいて」</p>
+    </div>
+
+    <p>これ一言で、Claudeは以下をすべて自動でやってくれます：</p>
+    <ol class="steps">
+      <li>新しいブランチを作成</li>
+      <li>HTMLファイルの該当箇所を修正</li>
+      <li>変更をコミット</li>
+      <li>GitHubにプッシュ</li>
+    </ol>
+
+    <h3>ステップ2：ブラウザでプルリクエストを作成・マージする</h3>
+    <ol class="steps">
+      <li>GitHubでリポジトリを開く</li>
+      <li>「<strong>Compare &amp; pull request</strong>」をクリック</li>
+      <li>「<strong>Create pull request</strong>」をクリック</li>
+      <li>「<strong>Merge pull request</strong>」→「<strong>Confirm merge</strong>」をクリック</li>
+    </ol>
+
+    <h3>ステップ3：更新を確認する</h3>
+    <p>公開URLにアクセスして、見出しが変わっていることを確認します。</p>
+    <div class="flow-diagram">https://あなたのユーザー名.github.io/my-landing-page/</div>
+
+    <div class="note">
+      <p class="note-title">注意</p>
+      <p>反映まで1〜2分かかることがあります。変わらない場合はブラウザのキャッシュをクリアするか、少し待ってからリロードしてください。</p>
+    </div>
+
+    <h2>更新サイクルまとめ</h2>
+    <div class="cycle-diagram">
+      <div class="step"><strong>① Claudeに修正を指示</strong></div>
+      <div class="arrow">↓</div>
+      <div class="step"><strong>② Claude:</strong> 修正 → コミット → プッシュ</div>
+      <div class="arrow">↓</div>
+      <div class="step"><strong>③ あなた:</strong> PR作成 → マージ（ブラウザ）</div>
+      <div class="arrow">↓</div>
+      <div class="step"><strong>④ LP更新完了！</strong></div>
+      <div class="arrow">↓</div>
+      <div class="step">（①に戻る）</div>
+    </div>
+    <p>何回でも、何度でも、このサイクルを回すだけでLPを進化させ続けられます。</p>
+
+    <h2>応用：こんなことも頼めます</h2>
+    <ul>
+      <li>「写真を追加して」</li>
+      <li>「ボタンの色を赤に変えて」</li>
+      <li>「スマホでも見やすくして」</li>
+      <li>「お問い合わせフォームを追加して」</li>
+      <li>「全体的にもっとポップな雰囲気にして」</li>
+    </ul>
+    <p>具体的に伝えるほど、思い通りの結果になります。</p>
+
+    <h2>チュートリアル完了</h2>
+    <div class="congrats">
+      <h3>おつかれさまでした！</h3>
+      <p>あなたはこのチュートリアルで、LPの作成から公開・更新まですべてをマスターしました。</p>
+    </div>
+
+    <table class="summary-table">
+      <thead>
+        <tr><th>話数</th><th>学んだこと</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>第1話</td><td>リポジトリの作成とクローン</td></tr>
+        <tr><td>第2話</td><td>ブランチ作成とLP作成</td></tr>
+        <tr><td>第3話</td><td>コミット（セーブポイント）</td></tr>
+        <tr><td>第4話</td><td>プッシュとプルリクエスト</td></tr>
+        <tr><td>第5話</td><td>GitHub Pagesでの公開</td></tr>
+        <tr><td>第6話</td><td>更新サイクル</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <p class="note-title">役割分担</p>
+      <p><strong>あなたの役割</strong>: 何を作りたいか伝える＋ブラウザでポチポチ<br>
+      <strong>Claudeの役割</strong>: コードを書く＋技術的な操作を全部代行<br><br>
+      この分担で、あなたはいつでもLPを作って世界に公開できます。</p>
+    </div>
+
+    <nav class="nav-links">
+      <a href="ep05.html">← 第5話に戻る</a>
+      <a href="index.html">最初に戻る →</a>
+    </nav>
+  </div>
+</body>
+</html>
