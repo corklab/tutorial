@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コラム：Google Analyticsで効果測定しよう</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="ep-header">
+      <span class="ep-number">コラム</span>
+      <h1>Google Analyticsで効果測定しよう</h1>
+      <p class="goal">LPを公開したら、次は「どれくらい見られているか」を知ろう</p>
+    </div>
+
+    <h2>効果測定とは</h2>
+    <p>LPを公開しただけでは、誰が見てくれたのか、どれくらいアクセスがあったのかはわかりません。<strong>効果測定</strong>とは、公開したページの成果を数字で把握することです。</p>
+
+    <p>たとえば、こんなことがわかります：</p>
+    <ul class="steps">
+      <li><strong>何人がページを見たか</strong> — アクセス数（ページビュー）</li>
+      <li><strong>どこからたどり着いたか</strong> — SNS経由？検索経由？URLを直接入力？</li>
+      <li><strong>どれくらいの時間見ていたか</strong> — すぐ離脱されたか、じっくり読まれたか</li>
+      <li><strong>スマホとPC、どちらが多いか</strong> — デバイスの比率</li>
+    </ul>
+
+    <div class="note">
+      <p class="note-title">なぜ効果測定が大事？</p>
+      <p>数字を見ることで「SNSでシェアしたら一気にアクセスが増えた」「スマホからの閲覧が8割だからスマホ表示を優先しよう」といった判断ができます。感覚ではなくデータで次の改善を決められるのが効果測定のメリットです。</p>
+    </div>
+
+    <p>効果測定にはさまざまなツールがありますが、最も広く使われているのが<strong>Google Analytics</strong>（グーグル アナリティクス）です。Googleアカウントがあれば無料で使えます。</p>
+
+    <h2>Google Analyticsのタグを埋め込もう</h2>
+    <p>Google AnalyticsでLPのアクセスを計測するには、HTMLに<strong>計測用のタグ（短いコード）</strong>を埋め込む必要があります。タグを埋め込む作業はClaudeに任せられます。</p>
+
+    <h3>ステップ1：Google Analyticsのアカウントを作成する</h3>
+    <ol class="steps">
+      <li>ブラウザで <a href="https://analytics.google.com/" target="_blank">analytics.google.com</a> にアクセス</li>
+      <li>Googleアカウントでログインする</li>
+      <li>「測定を開始」をクリック</li>
+      <li>アカウント名を入力（自由な名前でOK。例：「LP効果測定」）</li>
+      <li>プロパティ名を入力（サイトの名前。例：「カフェLP」）</li>
+      <li>タイムゾーンと通貨を「日本」「日本円」に設定</li>
+      <li>ビジネスの情報を入力して進む</li>
+    </ol>
+
+    <h3>ステップ2：データストリームを設定する</h3>
+    <ol class="steps">
+      <li>プラットフォームで「<strong>ウェブ</strong>」を選択</li>
+      <li>ウェブサイトのURLに <code>https://corklab.github.io/<strong>tutorial</strong></code> を入力</li>
+      <li>ストリーム名を入力（例：「LP」）</li>
+      <li>「ストリームを作成」をクリック</li>
+    </ol>
+
+    <h3>ステップ3：測定IDを確認する</h3>
+    <p>ストリームが作成されると、<strong>測定ID</strong>（Measurement ID）が表示されます。</p>
+    <div class="flow-diagram">G-XXXXXXXXXX</div>
+    <p>「<code>G-</code>」から始まるこのIDをコピーしてください。</p>
+
+    <h3>ステップ4：ClaudeにタグをHTMLに埋め込んでもらう</h3>
+    <p>コピーした測定IDをClaudeに渡して、タグの埋め込みを依頼します：</p>
+    <div class="instruction">
+      <p class="label">あなた → Claude</p>
+      <p>「LPのHTMLにGoogle Analyticsのタグを埋め込んで。測定IDは G-XXXXXXXXXX です。コミットとプッシュまでやっておいて」</p>
+    </div>
+
+    <p>Claudeは以下のようなコードをHTMLの <code>&lt;head&gt;</code> 内に自動で追加してくれます：</p>
+    <div class="flow-diagram">&lt;!-- Google tag (gtag.js) --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+&lt;/script&gt;</div>
+
+    <p>あとはいつもどおり、ブラウザでPRを作成してマージすれば完了です。</p>
+
+    <div class="note">
+      <p class="note-title">ポイント</p>
+      <p>タグを埋め込んだ直後からデータの収集が始まりますが、Google Analyticsの画面に反映されるまで最大48時間ほどかかる場合があります。すぐにデータが見えなくても心配ありません。</p>
+    </div>
+
+    <h2>Google Analyticsの画面の見方</h2>
+    <p>タグの埋め込みとデプロイが完了したら、<a href="https://analytics.google.com/" target="_blank">analytics.google.com</a> にアクセスして計測データを確認できます。</p>
+
+    <h3>リアルタイムレポート</h3>
+    <p>左メニューの「<strong>レポート</strong>」→「<strong>リアルタイム</strong>」を開くと、<strong>今この瞬間にサイトを見ている人数</strong>が表示されます。タグを埋め込んだ直後の動作確認にも使えます。自分でLPにアクセスして、リアルタイムに「1」と表示されれば、タグが正しく動いている証拠です。</p>
+
+    <h3>ユーザー属性</h3>
+    <p>「<strong>レポート</strong>」→「<strong>ユーザー属性</strong>」→「<strong>概要</strong>」を開くと、訪問者の情報がわかります：</p>
+    <table class="summary-table">
+      <thead>
+        <tr><th>項目</th><th>わかること</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>国</td><td>どの国からアクセスがあるか</td></tr>
+        <tr><td>市区町村</td><td>おおまかな地域</td></tr>
+        <tr><td>言語</td><td>ブラウザの表示言語</td></tr>
+      </tbody>
+    </table>
+
+    <h3>テクノロジー</h3>
+    <p>「<strong>レポート</strong>」→「<strong>テクノロジー</strong>」→「<strong>概要</strong>」を開くと、訪問者の環境がわかります：</p>
+    <table class="summary-table">
+      <thead>
+        <tr><th>項目</th><th>わかること</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>プラットフォーム</td><td>PC / スマホ / タブレットの比率</td></tr>
+        <tr><td>ブラウザ</td><td>Chrome / Safari / Edge など</td></tr>
+        <tr><td>OS</td><td>Windows / Mac / iOS / Android など</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <p class="note-title">スマホ比率が高かったら？</p>
+      <p>Claudeに「スマホでもっと見やすくして」と頼みましょう。データに基づいた改善ができるのが効果測定の強みです。</p>
+    </div>
+
+    <h3>集客（トラフィック獲得）</h3>
+    <p>「<strong>レポート</strong>」→「<strong>集客</strong>」→「<strong>トラフィック獲得</strong>」を開くと、<strong>訪問者がどこから来たか</strong>がわかります：</p>
+    <table class="summary-table">
+      <thead>
+        <tr><th>チャネル</th><th>意味</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Direct</td><td>URLを直接入力、またはブックマークからアクセス</td></tr>
+        <tr><td>Organic Social</td><td>X（Twitter）、Instagram、FacebookなどSNSからのアクセス</td></tr>
+        <tr><td>Organic Search</td><td>Googleなどの検索結果からのアクセス</td></tr>
+        <tr><td>Referral</td><td>他のサイトに貼られたリンクからのアクセス</td></tr>
+      </tbody>
+    </table>
+
+    <h3>エンゲージメント</h3>
+    <p>「<strong>レポート</strong>」→「<strong>エンゲージメント</strong>」→「<strong>概要</strong>」を開くと、訪問者がどれくらいページに関わったかがわかります：</p>
+    <table class="summary-table">
+      <thead>
+        <tr><th>指標</th><th>意味</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>平均エンゲージメント時間</td><td>ページを実際に見ていた平均時間</td></tr>
+        <tr><td>エンゲージメント率</td><td>10秒以上滞在 or 2ページ以上閲覧した人の割合</td></tr>
+        <tr><td>表示回数</td><td>ページが表示された合計回数</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <p class="note-title">まずはこれだけ見ればOK</p>
+      <p>Google Analyticsには膨大な機能がありますが、LP運用で最初に見るべきは「<strong>リアルタイム</strong>」（タグの動作確認）と「<strong>集客</strong>」（どこからアクセスが来ているか）の2つです。慣れてきたらユーザー属性やエンゲージメントも活用していきましょう。</p>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">← 目次に戻る</a>
+      <span></span>
+    </nav>
+  </div>
+</body>
+</html>
